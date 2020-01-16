@@ -22,7 +22,7 @@ module.exports = {
     "componentName": "Div",
     "props": {
       "onClick": function onClick(e) {
-        window.open(this.item.url, '_blank')
+        window.open(this.item.url, "_blank");
       },
       "data-url": "{{this.item.url}}",
       "key": "{{this.item.index}}"
@@ -362,11 +362,11 @@ module.exports = {
             "text": "{{this.item.readCount}}"
           }
         }],
-        "condition": "{{this.isReadCountShow(this.item.readCount)}}"
+        "condition": "{{isReadCountShow(this.item.readCount)}}"
       }]
     }],
     "loopArgs": ["item", "index"],
-    "loop": "{{this.state.data}}"
+    "loop": "{{data}}"
   }],
   "fileName": "index",
   "methods": {
@@ -374,46 +374,8 @@ module.exports = {
       return readCount > 300;
     }
   },
-  "lifeCycles": {
-    "_constructor": function constructor(props, context) {
-      console.log('super props');
-    },
-    "componentDidUpdate": (prevProps, prevState, snapshot) => {
-      
-    }
-  },
-  "dataSource": {
-    "list": [{
-      "id": "fetch_example",
-      "isInit": true,
-      "type": "fetch",
-      "options": {
-        "method": "GET",
-        "uri": "https://jsonplaceholder.typicode.com/todos/1",
-        "headers": {
-          "Content-Type": "json"
-        }
-      },
-      "dataHandler": function dataHandler(data, error) {
-        console.log('fetch example: ', data, error)
-        return data;
-      }
-    }, {
-      "id": "jsonp_example",
-      "isInit": true,
-      "type": "jsonp",
-      "options": {
-        "method": "GET",
-        "params": {},
-        "uri": "https://assets.airbnb.com/frontend/search_results.js",
-        "jsonpCallbackFunction": "search_results"
-      },
-      "dataHandler": function dataHandler(data, error) {
-        console.log('jsonp example: ', data, error)
-        return data;
-      }
-    }]
-  },
+  "lifeCycles": {},
+  "dataSource": {},
   "state": {
     "data": [{
       "title": "小户型卫浴怎样才能装得高大上？",
@@ -435,4 +397,4 @@ module.exports = {
       "url": "https://www.imgcook.com/docs"
     }]
   }
-}
+};
