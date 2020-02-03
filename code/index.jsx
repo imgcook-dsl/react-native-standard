@@ -102,15 +102,7 @@ const styles = {
     height: 30
   },
   riverdinwei: { opacity: 1, width: 14, height: 18 },
-  distance: {
-    marginLeft: 4,
-    height: 22,
-    fontWeight: '400',
-    fontSize: 18,
-    color: '#ffffff',
-    lineHeight: 22,
-    whiteSpace: 'nowrap'
-  },
+  distance: { marginLeft: 4, height: 22, fontSize: 18, color: '#ffffff', lineHeight: 22, whiteSpace: 'nowrap' },
   main: {
     display: 'flex',
     alignItems: 'flex-start',
@@ -124,9 +116,7 @@ const styles = {
     marginTop: 22,
     width: 300,
     height: 88,
-    fontWeight: '400',
     fontSize: 30,
-    color: '#333333',
     lineHeight: 44,
     overflow: 'hidden',
     textOverflow: 'ellipsis'
@@ -158,13 +148,5 @@ const styles = {
   },
   group: { display: 'flex', alignItems: 'center', flexDirection: 'row', height: 30 },
   favorite: { width: 22, height: 22 },
-  num: {
-    marginLeft: 5,
-    height: 26,
-    fontWeight: '400',
-    fontSize: 22,
-    color: '#999999',
-    lineHeight: 26,
-    whiteSpace: 'nowrap'
-  }
+  num: { marginLeft: 5, height: 26, fontSize: 22, color: '#999999', lineHeight: 26, whiteSpace: 'nowrap' }
 };

@@ -45,15 +45,24 @@ module.exports = function(schema, option) {
     for (let key in style) {
       switch (key) {
         case "fontWeight":
-          style[key] = String(style[key]);
+          if (style[key] == 400) {
+            delete style[key];
+          } else {
+            style[key] = String(style[key]);
+          }
+          break;
+        case "color":
+          if (style[key] === "#333333") {
+            delete style[key];
+          }
           break;
         case "opacity":
           style[key] = Number(style[key]);
           break;
-        case 'boxSizing':
-        case 'boxShadow':
-          delete style[key]
-          break
+        case "boxSizing":
+        case "boxShadow":
+          delete style[key];
+          break;
         default:
           if (/[0-9]+px/.test(style[key])) {
             style[key] = parseFloat(style[key]);
@@ -191,10 +200,13 @@ module.exports = function(schema, option) {
   const generateRender = (schema) => {
     const type = schema.componentName.toLowerCase();
     const className = schema.props && schema.props.className;
-    const classString = className ? ` style={styles.${className}}` : "";
+    let classString = "";
 
     if (className) {
+      classString = ` style={styles.${className}}`;
       style[className] = parseStyle(schema.props.style);
+    } else if (schema.props.style) {
+      classString = ` style={${toString(parseStyle(schema.props.style))}}`;
     }
 
     let xml;
@@ -261,8 +273,8 @@ module.exports = function(schema, option) {
 
         if (schema.state) {
           Object.keys(schema.state).forEach(key => {
-            states.push(`const [${key}] = React.useState(${toString(schema.state[key])})`)
-          })
+            states.push(`const [${key}] = React.useState(${toString(schema.state[key])})`);
+          });
         }
 
         if (schema.methods) {
@@ -350,7 +362,7 @@ module.exports = function(schema, option) {
           const styles = ${toString(style)}
         `, prettierOpt),
         panelType: "js"
-      },
+      }
       // {
       //   panelName: `style.js`,
       //   panelValue: prettier.format(`export default ${toString(style)}`, prettierOpt),
