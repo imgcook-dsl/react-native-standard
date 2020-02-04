@@ -56,11 +56,24 @@ module.exports = function(schema, option) {
             delete style[key];
           }
           break;
+        case "display":
+          if (style[key] === "flex") {
+            delete style[key];
+          }
+          break;
+        case "flexDirection":
+          if (style[key] === "column") {
+            delete style[key];
+          }
+          break;
         case "opacity":
           style[key] = Number(style[key]);
           break;
         case "boxSizing":
         case "boxShadow":
+        case "overflow":
+        case "textOverflow":
+        case "whiteSpace":
           delete style[key];
           break;
         default:
