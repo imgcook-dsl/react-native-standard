@@ -36,13 +36,13 @@ export default function Page_0() {
             <View style={styles.bd}>
               <Image
                 style={styles.layer}
-                src={{ uri: 'https://img.alicdn.com/tfs/TB1bLoWoYH1gK0jSZFwXXc7aXXa-684-684.png' }}
+                source={{ uri: 'https://img.alicdn.com/tfs/TB1bLoWoYH1gK0jSZFwXXc7aXXa-684-684.png' }}
               />
-              <Image style={styles.bg} src={{ uri: item.coverImage }} />
+              <Image style={styles.bg} source={{ uri: item.coverImage }} />
               <View style={styles.wrap}>
                 <Image
                   style={styles.riverdinwei}
-                  src={{ uri: 'https://img.alicdn.com/tfs/TB1mtZRoVT7gK0jSZFpXXaTkpXa-28-36.png' }}
+                  source={{ uri: 'https://img.alicdn.com/tfs/TB1mtZRoVT7gK0jSZFpXXaTkpXa-28-36.png' }}
                 />
                 <Text style={styles.distance}>距离500m</Text>
               </View>
@@ -54,7 +54,7 @@ export default function Page_0() {
               <View style={styles.block}>
                 <Image
                   style={styles.xianjin}
-                  src={{ uri: 'https://img.alicdn.com/tfs/TB1OvsYoW61gK0jSZFlXXXDKFXa-60-60.png' }}
+                  source={{ uri: 'https://img.alicdn.com/tfs/TB1OvsYoW61gK0jSZFlXXXDKFXa-60-60.png' }}
                 />
                 <Text style={styles.fashionHome}>{item.user.userName}</Text>
               </View>
@@ -62,7 +62,7 @@ export default function Page_0() {
                 <View style={styles.group}>
                   <Image
                     style={styles.favorite}
-                    src={{ uri: 'https://img.alicdn.com/tfs/TB1arwYo7T2gK0jSZFkXXcIQFXa-46-44.png' }}
+                    source={{ uri: 'https://img.alicdn.com/tfs/TB1arwYo7T2gK0jSZFkXXcIQFXa-46-44.png' }}
                   />
                   <Text style={styles.num}>{item.readCount}</Text>
                 </View>
@@ -76,20 +76,11 @@ export default function Page_0() {
 }
 
 const styles = {
-  box: { display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'flex-start', height: 534 },
-  bd: {
-    display: 'flex',
-    position: 'relative',
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    opacity: 1,
-    width: 342,
-    height: 342
-  },
-  layer: { position: 'absolute', top: 0, left: 0, width: 342, height: 342, overflow: 'hidden' },
+  box: { flexDirection: 'row', justifyContent: 'space-around', alignItems: 'flex-start', height: 534 },
+  bd: { position: 'relative', alignItems: 'flex-start', flexDirection: 'row', opacity: 1, width: 342, height: 342 },
+  layer: { position: 'absolute', top: 0, left: 0, width: 342, height: 342 },
   bg: { position: 'absolute', top: 0, left: 0, opacity: 1, width: 342, height: 342 },
   wrap: {
-    display: 'flex',
     position: 'relative',
     alignItems: 'center',
     flexDirection: 'row',
@@ -102,9 +93,8 @@ const styles = {
     height: 30
   },
   riverdinwei: { opacity: 1, width: 14, height: 18 },
-  distance: { marginLeft: 4, height: 22, fontSize: 18, color: '#ffffff', lineHeight: 22, whiteSpace: 'nowrap' },
+  distance: { marginLeft: 4, fontSize: 18, color: '#ffffff', lineHeight: 22 },
   main: {
-    display: 'flex',
     alignItems: 'flex-start',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -112,17 +102,8 @@ const styles = {
     width: 342,
     height: 114
   },
-  title: {
-    marginTop: 22,
-    width: 300,
-    height: 88,
-    fontSize: 30,
-    lineHeight: 44,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis'
-  },
+  title: { marginTop: 22, fontSize: 30, lineHeight: 44 },
   ft: {
-    display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -132,21 +113,12 @@ const styles = {
     paddingRight: 17,
     paddingLeft: 18,
     width: 342,
-    height: 78,
-    overflow: 'hidden'
+    height: 78
   },
-  block: { display: 'flex', alignItems: 'center', flexDirection: 'row', height: 30 },
+  block: { alignItems: 'center', flexDirection: 'row', height: 30 },
   xianjin: { width: 30, height: 30 },
-  fashionHome: {
-    marginLeft: 6,
-    height: 28,
-    fontWeight: '300',
-    fontSize: 24,
-    color: '#666666',
-    lineHeight: 28,
-    whiteSpace: 'nowrap'
-  },
-  group: { display: 'flex', alignItems: 'center', flexDirection: 'row', height: 30 },
+  fashionHome: { marginLeft: 6, fontWeight: '300', fontSize: 24, color: '#666666', lineHeight: 28 },
+  group: { alignItems: 'center', flexDirection: 'row', height: 30 },
   favorite: { width: 22, height: 22 },
-  num: { marginLeft: 5, height: 26, fontSize: 22, color: '#999999', lineHeight: 26, whiteSpace: 'nowrap' }
+  num: { marginLeft: 5, fontSize: 22, color: '#999999', lineHeight: 26 }
 };

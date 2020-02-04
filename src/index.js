@@ -41,7 +41,12 @@ module.exports = function(schema, option) {
   };
 
   // convert to responsive unit, such as vw
-  const parseStyle = (style) => {
+  const parseStyle = (style, componentName) => {
+    if (componentName === "text") {
+      delete style.width;
+      delete style.height;
+    }
+
     for (let key in style) {
       switch (key) {
         case "fontWeight":
@@ -217,9 +222,9 @@ module.exports = function(schema, option) {
 
     if (className) {
       classString = ` style={styles.${className}}`;
-      style[className] = parseStyle(schema.props.style);
+      style[className] = parseStyle(schema.props.style, type);
     } else if (schema.props.style) {
-      classString = ` style={${toString(parseStyle(schema.props.style))}}`;
+      classString = ` style={${toString(parseStyle(schema.props.style, type))}}`;
     }
 
     let xml;
@@ -238,7 +243,7 @@ module.exports = function(schema, option) {
         break;
       case "image":
         const source = parseProps(schema.props.src);
-        xml = `<Image${classString}${props} src={{ uri: ${source} }} />`;
+        xml = `<Image${classString}${props} source={{ uri: ${source} }} />`;
         break;
       case "div":
       case "page":
