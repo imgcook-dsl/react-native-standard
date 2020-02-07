@@ -45,6 +45,7 @@ module.exports = function(schema, option) {
     if (componentName === "text") {
       delete style.width;
       delete style.height;
+      delete style.maxWidth;
     }
 
     for (let key in style) {
