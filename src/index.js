@@ -57,6 +57,13 @@ module.exports = function(schema, option) {
             style[key] = String(style[key]);
           }
           break;
+        case "fontSize":
+          if (style[key] == 14) {
+            delete style[key];
+          } else {
+            style[key] = parseFloat(style[key])
+          }
+          break;
         case "color":
           if (style[key] === "#333333") {
             delete style[key];
